@@ -15,6 +15,7 @@ const Icon = ({ name, ...props }) => {
         />
       </svg>
     ),
+
     sun: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -38,6 +39,7 @@ const Icon = ({ name, ...props }) => {
         />
       </svg>
     ),
+
     search: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -51,6 +53,7 @@ const Icon = ({ name, ...props }) => {
         <path stroke="#666" strokeLinecap="round" d="M16 16l-3-3" />
       </svg>
     ),
+
     home: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -78,6 +81,7 @@ const Icon = ({ name, ...props }) => {
         />
       </svg>
     ),
+
     friends: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -96,6 +100,7 @@ const Icon = ({ name, ...props }) => {
         />
       </svg>
     ),
+
     notify: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -114,6 +119,7 @@ const Icon = ({ name, ...props }) => {
         />
       </svg>
     ),
+
     chat: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -132,6 +138,7 @@ const Icon = ({ name, ...props }) => {
         />
       </svg>
     ),
+
     dots: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -146,6 +153,7 @@ const Icon = ({ name, ...props }) => {
         <circle cx="2" cy="15" r="2" fill="#C4C4C4" />
       </svg>
     ),
+
     "arrow-right": (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -161,6 +169,38 @@ const Icon = ({ name, ...props }) => {
         />
       </svg>
     ),
+
+    "arrow-down": (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="10"
+        height="6"
+        fill="none"
+        viewBox="0 0 10 6"
+      >
+        <path
+          fill="#112032"
+          d="M5 5l.354.354L5 5.707l-.354-.353L5 5zm4.354-3.646l-4 4-.708-.708 4-4 .708.708zm-4.708 4l-4-4 .708-.708 4 4-.708.708z"
+        />
+      </svg>
+    ),
+
+    "arrow-right-sm": (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="6"
+        height="10"
+        fill="none"
+        viewBox="0 0 6 10"
+      >
+        <path
+          fill="#112032"
+          d="M5 5l.354.354L5.707 5l-.353-.354L5 5zM1.354 9.354l4-4-.708-.708-4 4 .708.708zm4-4.708l-4-4-.708.708 4 4 .708-.708z"
+          opacity=".5"
+        />
+      </svg>
+    ),
+
     plus: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -394,6 +434,49 @@ const Icon = ({ name, ...props }) => {
         <path
           fill="#666"
           d="M19.504 19.209c.332 0 .601.289.601.646 0 .326-.226.596-.52.64l-.081.005h-6.276c-.332 0-.602-.289-.602-.645 0-.327.227-.597.52-.64l.082-.006h6.276zM13.4 4.417c1.139-1.223 2.986-1.223 4.125 0l1.182 1.268c1.14 1.223 1.14 3.205 0 4.427L9.82 19.649a2.619 2.619 0 01-1.916.85h-3.64c-.337 0-.61-.298-.6-.66l.09-3.941a3.019 3.019 0 01.794-1.982l8.852-9.5zm-.688 2.562l-7.313 7.85a1.68 1.68 0 00-.441 1.101l-.077 3.278h3.023c.356 0 .698-.133.968-.376l.098-.096 7.35-7.887-3.608-3.87zm3.962-1.65a1.633 1.633 0 00-2.423 0l-.688.737 3.606 3.87.688-.737c.631-.678.666-1.755.105-2.477l-.105-.124-1.183-1.268z"
+        />
+      </svg>
+    ),
+
+    "log-out": (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="19"
+        height="19"
+        fill="none"
+        viewBox="0 0 19 19"
+      >
+        <path
+          stroke="#377DFF"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.5"
+          d="M6.667 18H2.889A1.889 1.889 0 011 16.111V2.89A1.889 1.889 0 012.889 1h3.778M13.277 14.222L18 9.5l-4.723-4.722M18 9.5H6.667"
+        />
+      </svg>
+    ),
+
+    "help-and-support": (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        fill="none"
+        viewBox="0 0 20 20"
+      >
+        <path
+          stroke="#377DFF"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.5"
+          d="M10 19a9 9 0 100-18 9 9 0 000 18z"
+        />
+        <path
+          stroke="#377DFF"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.5"
+          d="M7.38 7.3a2.7 2.7 0 015.248.9c0 1.8-2.7 2.7-2.7 2.7M10 14.5h.009"
         />
       </svg>
     ),

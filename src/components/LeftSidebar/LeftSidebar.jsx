@@ -88,30 +88,32 @@ const LeftSidebar = ({ exploreItems, suggestedPeople, events }) => {
           </div>
 
           {events.map((event, idx) => (
-            <a
+            <div
               className="_left_inner_event_card_link"
-              href="event-single.html"
               key={idx}
+              style={{ cursor: 'pointer', display: 'block' }}
             >
               <div className="_left_inner_event_card">
-                <div className="_left_inner_event_card_iamge">
-                  <img
-                    src={event.img}
-                    alt={event.title}
-                    className="_card_img"
-                  />
-                </div>
-                <div className="_left_inner_event_card_content">
-                  <div className="_left_inner_card_date">
-                    <p className="_left_inner_card_date_para">{event.date}</p>
-                    <p className="_left_inner_card_date_para1">{event.month}</p>
-                  </div>
-                  <div className="_left_inner_card_txt">
-                    <h4 className="_left_inner_event_card_title">
-                      {event.title}
-                    </h4>
-                  </div>
-                </div>
+                <a href="event-single.html" style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <div className="_left_inner_event_card_iamge">
+                    <img
+                        src={event.img}
+                        alt={event.title}
+                        className="_card_img"
+                    />
+                    </div>
+                    <div className="_left_inner_event_card_content">
+                    <div className="_left_inner_card_date">
+                        <p className="_left_inner_card_date_para">{event.date}</p>
+                        <p className="_left_inner_card_date_para1">{event.month}</p>
+                    </div>
+                    <div className="_left_inner_card_txt">
+                        <h4 className="_left_inner_event_card_title">
+                        {event.title}
+                        </h4>
+                    </div>
+                    </div>
+                </a>
                 <hr className="_underline" />
                 <div className="_left_inner_event_bottom">
                   <p className="_left_iner_event_bottom">{event.going}</p>
@@ -120,7 +122,7 @@ const LeftSidebar = ({ exploreItems, suggestedPeople, events }) => {
                   </a>
                 </div>
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>
