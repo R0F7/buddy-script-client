@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.t_bor{
+  border: 1px solid red;
+}
+
+@media screen and (min-width: 1000px) {
+  ._header_form_grp {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  ._header_form_svg,
+  ._header_form_grp svg {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+
+  ._inpt1 {
+    padding-left: 47px !important;
+  }
+}
+
+
