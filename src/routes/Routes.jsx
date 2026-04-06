@@ -3,6 +3,7 @@ import Main from "../layout/Main";
 import Registration from "../pages/Registration/Registration";
 import Login from "../pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
@@ -12,7 +13,7 @@ export const router = createBrowserRouter([
         <Main></Main>
       </PrivateRoute>
     ),
-    // errorElement: <ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
   },
   {
     path: "/login",

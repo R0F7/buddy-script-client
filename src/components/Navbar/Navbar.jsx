@@ -11,7 +11,7 @@ const Navbar = ({
   notifyRef,
   profileRef,
 }) => {
-  const { logOut } = useAuth();
+  const { logOut, user } = useAuth();
 
   const toggleNotify = (e) => {
     e.stopPropagation();
@@ -226,10 +226,21 @@ const Navbar = ({
             </ul>
             <div className="_header_nav_profile" ref={profileRef}>
               <div className="_header_nav_profile_image">
-                <img src={profile} alt="Image" className="_nav_profile_img" />
+                <img
+                  src={user.photoURL || profile}
+                  referrerPolicy="no-referrer"
+                  alt="Image"
+                  className="_nav_profile_img"
+                  style={{
+                    borderRadius: "50%",
+                    objectFit: "cover",
+                  }}
+                />
               </div>
               <div className="_header_nav_dropdown">
-                <p className="_header_nav_para">Dylan Field</p>
+                <p className="_header_nav_para">
+                  {user.displayName || "Dylan Field"}
+                </p>
                 <button
                   id="_profile_drop_show_btn"
                   className="_header_nav_dropdown_btn _dropdown_toggle"
@@ -253,13 +264,18 @@ const Navbar = ({
                   <div className="_nav_profile_dropdown_info">
                     <div className="_nav_profile_dropdown_image">
                       <img
-                        src={profile}
+                        src={user.photoURL || profile}
+                        referrerPolicy="no-referrer"
                         alt="Image"
                         className="_nav_drop_img"
+                        style={{
+                          borderRadius: "50%",
+                          objectFit: "cover",
+                        }}
                       />
                     </div>
                     <div className="_nav_profile_dropdown_info_txt">
-                      <h4 className="_nav_dropdown_title">Dylan Field</h4>
+                      <h4 className="_nav_dropdown_title">{user.displayName || "Dylan Field"}</h4>
                       <a href="profile.html" className="_nav_drop_profile">
                         View Profile
                       </a>

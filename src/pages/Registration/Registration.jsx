@@ -10,12 +10,24 @@ import { useFormik } from "formik";
 import registrationSchema from "../../validationSchema/registrationValidationSchema";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import { useMutation } from "@tanstack/react-query";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const Registration = () => {
-  const { createUser, setLoading, signInWithGoogle } = useAuth();
+  const { createUser, setLoading, signInWithGoogle, updateUserProfile } =
+    useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const from = location?.state || "/";
+  const axiosSecure = useAxiosSecure();
+
+  const { mutateAsync: post_user } = useMutation({
+    mutationFn: async (info) => {
+      const { data } = await axiosSecure.post("/add-user", info);
+      return data;
+    },
+    onError: () => toast.error("Something wrong."),
+  });
 
   const formik = useFormik({
     initialValues: {
@@ -36,6 +48,8 @@ const Registration = () => {
         const password = values.password;
 
         await createUser(email, password);
+        await updateUserProfile(fullName);
+        await post_user({ fullName, email });
         toast.success("Registration Successfully", { id: registrationToast });
         navigate(from);
       } catch (error) {
@@ -50,7 +64,14 @@ const Registration = () => {
   const handleSignInWithGoogle = async () => {
     try {
       setLoading(true);
-      await signInWithGoogle();
+      const result = await signInWithGoogle();
+      const user = result.user;
+
+      await post_user({
+        email: user.email,
+        name: user.displayName,
+      });
+
       toast.success("Google Login Successful");
       navigate(from);
     } catch (error) {
@@ -268,7 +289,7 @@ const Registration = () => {
                         <button
                           type="submit"
                           disabled={formik.isSubmitting}
-                          className="_social_registration_form_btn_link _btn1 text-nowrap overflow-hidden"
+                          className="_social_registration_form_btn_link _btn1 text-nowrap overflow-hidden w-100"
                         >
                           {formik.isSubmitting ? "Logging..." : "Register Now"}
                         </button>

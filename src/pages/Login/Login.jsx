@@ -14,12 +14,23 @@ import loginImg from "../../assets/images/login.png";
 import logoImg from "../../assets/images/logo.svg";
 import googleIcon from "../../assets/images/google.svg";
 import loginValidationSchema from "../../validationSchema/loginValidationSchema";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { useMutation } from "@tanstack/react-query";
 
 const Login = () => {
   const { signIn, setLoading, signInWithGoogle } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state || "/";
+  const axiosSecure = useAxiosSecure();
+
+  const { mutateAsync: post_user } = useMutation({
+    mutationFn: async (info) => {
+      const { data } = await axiosSecure.post("/add-user", info);
+      return data;
+    },
+    onError: () => toast.error("Something wrong."),
+  });
 
   const formik = useFormik({
     initialValues: {
@@ -46,7 +57,14 @@ const Login = () => {
   const handleSignInWithGoogle = async () => {
     try {
       setLoading(true);
-      await signInWithGoogle();
+      const result = await signInWithGoogle();
+      const user = result.user;
+
+      await post_user({
+        email: user.email,
+        name: user.displayName,
+      });
+
       toast.success("Google Login Successful");
       navigate(from);
     } catch (error) {
